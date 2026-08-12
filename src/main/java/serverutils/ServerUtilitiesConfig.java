@@ -584,6 +584,10 @@ public class ServerUtilitiesConfig {
         @Config.RangeInt(min = 0, max = 100)
         public int player_sleeping_percentage;
 
+        @Config.Comment("Adds a spawnRadius gamerule controlling where brand-new players first spawn. 0 = exact world spawn, N = random offset within radius N around world spawn. The gamerule is initialized to 0.")
+        @Config.DefaultBoolean(true)
+        public boolean enable_spawn_radius;
+
         @Config.Ignore
         private List<DisabledItem> disabledItems = null;
 

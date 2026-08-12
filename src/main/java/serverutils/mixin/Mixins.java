@@ -57,6 +57,10 @@ public enum Mixins implements IMixins {
             .setPhase(Phase.EARLY)
             .setApplyIf(() -> world.enable_player_sleeping_percentage)
             .addCommonMixins("minecraft.MixinWorldServer_SleepPercentage")),
+    SPAWN_RADIUS(new MixinBuilder("spawnRadius gamerule controls brand-new player spawn offset")
+            .setPhase(Phase.EARLY)
+            .setApplyIf(() -> world.enable_spawn_radius)
+            .addCommonMixins("minecraft.MixinWorldProvider_SpawnRadius")),
     DISABLE_ENDERMEN_GRIEFING(new MixinBuilder("Disable Endermen Griefing in Claimed Chunks")
             .setPhase(Phase.EARLY)
             .setApplyIf(() -> mixins.endermen)

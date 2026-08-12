@@ -71,6 +71,10 @@ public class ServerUtilitiesServerEventHandler {
                         Integer.toString(ServerUtilitiesConfig.world.player_sleeping_percentage));
             }
         }
+        if (ServerUtilitiesConfig.world.enable_spawn_radius && !event.world.isRemote
+                && !event.world.getGameRules().hasRule("spawnRadius")) {
+            event.world.getGameRules().addGameRule("spawnRadius", "0");
+        }
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
